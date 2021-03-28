@@ -3,7 +3,6 @@ package data
 import (
 	"bytes"
 	"encoding/gob"
-	"fmt"
 	"reflect"
 	"testing"
 )
@@ -402,11 +401,8 @@ func deepCopy(data map[string]interface{}) map[string]interface{} {
 	buf := &bytes.Buffer{}
 	enc, dec := gob.NewEncoder(buf), gob.NewDecoder(buf)
 
-	err1 := enc.Encode(&data)
-	err2 := dec.Decode(&out)
-
-	fmt.Println(err1)
-	fmt.Println(err2)
+	_ = enc.Encode(&data)
+	_ = dec.Decode(&out)
 
 	return out
 }
