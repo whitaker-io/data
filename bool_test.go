@@ -23,6 +23,15 @@ func TestData_Bool(t *testing.T) {
 			wantErr: true,
 		},
 		{
+			name: "int",
+			d:    deepCopy(commonMap),
+			args: args{
+				key: "int",
+			},
+			want:    false,
+			wantErr: true,
+		},
+		{
 			name: "bool",
 			d:    deepCopy(commonMap),
 			args: args{
